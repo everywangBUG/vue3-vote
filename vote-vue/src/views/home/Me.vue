@@ -1,6 +1,11 @@
 <template>
   <div class="me">
-    <h2>me</h2>
+    <div class="me_user">
+      <span>我的</span>
+    </div>
+    <div class="me_middle">
+
+    </div>
   </div>
 </template>
 
@@ -8,5 +13,6 @@
 
 <style lang="less" scoped>
 .me{
+  
 }
 </style>

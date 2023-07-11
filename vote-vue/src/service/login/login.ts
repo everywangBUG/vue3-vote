@@ -1,9 +1,5 @@
 import { myRequest } from "@/service/index";
-
-interface ILogin {
-  name: string
-  password: string
-}
+import type { ILogin } from "@/types/login/login";
 
 export function accountLogin(account: ILogin) {
   return myRequest.post({

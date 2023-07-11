@@ -1,16 +1,5 @@
 <template>
   <div class="login">
-    <!-- <form :model="formAccount" class="login_content">
-      <label>用户名：
-        <input type="text" v-model="formAccount.name" class="login_content_name"/>
-      </label>
-      <label>密&nbsp;&nbsp;&nbsp;&nbsp;码：
-        <input type="password" v-model="formAccount.password" class="login_content_password"/>
-      </label>
-      <div class="login_content_btnwrapper">
-        <button type="submit" @click="login">登录</button>
-      </div>
-    </form> -->
     <van-form @submit="login" :model="formAccount" class="login_content">
       <van-cell-group inset>
         <van-field
@@ -41,11 +30,7 @@
 <script lang="ts" setup>
 import useLoginStore from '@/stores/login/login';
 import { reactive, ref } from 'vue'
-
-interface ILogin {
-  name: string
-  password: string
-}
+import type { ILogin } from '@/types/login/login';
 
 const formAccount = reactive<ILogin>({
   name: '',

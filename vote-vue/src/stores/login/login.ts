@@ -4,16 +4,8 @@ import { defineStore } from 'pinia'
 import { showDialog } from 'vant';
 import router from '@/router/index'
 import 'vant/es/dialog/style'
-
-interface ILoginStore {
-  cookie: string,
-  userLoginInfo: any
-}
-
-interface ILogin {
-  name: string
-  password: string
-}
+import type { ILogin } from '@/types/login/login';
+import type { ILoginStore } from '../types';
 
 const useLoginStore = defineStore(LOGIN, {
   state: (): ILoginStore => ({

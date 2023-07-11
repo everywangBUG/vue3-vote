@@ -26,7 +26,6 @@
           >
             <van-button
               icon="minus"
-              type="round"
               size="mini"
               color="#ff5454"
               @click="singleVote.options.splice(index, 1)"
@@ -34,7 +33,7 @@
             <van-field v-model="singleVote.options[index]" placeholder="选填"/>
           </div>
           <div class="create_vote_content_top_select" @click="addOptions">
-            <van-button icon="plus" type="round" size="mini" color="#1989fa"/>
+            <van-button icon="plus" size="mini" color="#1989fa"/>
             <van-field placeholder='添加选项' disabled/>
           </div>
         </div>
