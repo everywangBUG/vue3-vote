@@ -20,6 +20,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   height: 100rem;
 
   &_single {

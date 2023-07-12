@@ -105,6 +105,7 @@ import { reactive, ref, computed } from 'vue'
 import useVoteStore from  '@/stores/vote/vote'
 import router from '@/router'
 import dayjs from 'dayjs'
+import { storeToRefs } from 'pinia';
 
 interface ISingle {
   title: string
@@ -162,8 +163,10 @@ const singleVote = reactive<ISingle>({
 })
 
 const voteStore = useVoteStore()
+const { voteId } = storeToRefs(voteStore)
 const onSubmit = () => {
   voteStore.postCreateVoteAction(singleVote)
+  router.push(`/vote/${voteId}`)
 }
 
 const addOptions = () => {

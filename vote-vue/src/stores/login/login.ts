@@ -16,9 +16,7 @@ const useLoginStore = defineStore(LOGIN, {
     async postLoginAction(account: ILogin) {
       try {
         const accountLoginRes = await accountLogin(account)
-        console.log('accountLoginRes', accountLoginRes)
         const dataRes = accountLoginRes?.data
-        console.log('dataRes', dataRes)
         if (dataRes) {
           const { code, result } = dataRes
           if (code === 0 && result) {

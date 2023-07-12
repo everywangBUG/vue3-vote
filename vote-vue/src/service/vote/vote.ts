@@ -7,3 +7,9 @@ export function postVoteData(formData: IVote) {
     data: formData
   })
 }
+
+export function getVoteInfo(id: number) {
+  return myRequest.post({
+    url: `/vote/${id}`
+  })
+}
