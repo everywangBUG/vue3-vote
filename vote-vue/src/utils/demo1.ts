@@ -97,3 +97,63 @@ const userInfo: IFriend = {
 }
 getUserInfo(userInfo)
 console.log(getUserInfo(userInfo))
+
+// 字面量类型
+type RequestMethods = 'post'|'get'|'delete'|'patch'|'options'|'head'
+function request(url: string, method: RequestMethods) {
+  console.log(url, method)
+}
+const info1 = {
+  url: 'xxx',
+  method: 'post'
+}
+// 无法使用字面量类型
+// request(info1.url, info1.method)
+// 方式一：对info1.method使用类型断言
+request(info1.url, info1.method as 'post')
+// 方式二：对info1使用类型断言
+const info2 = {
+  url: 'xxxx',
+  method: 'post'
+} as const
+request(info2.url, info2.method)
+
+// 平等缩小
+type Direction = 'right'|'left'|'up'|'down'
+function move(direction: Direction) {
+  if (direction === 'down') {
+    console.log('人物向下移动')
+  }
+  if (direction === 'up') {
+    console.log('人物向上移动')
+  }
+}
+move('down')
+move('up')
+
+// in进行类型缩小
+interface ISwimming {
+  swim: () => void
+}
+interface IRun {
+  run: () => void
+}
+function moveBody(animal: ISwimming | IRun) {
+  // 判断某一个对象中是否包含某一个key
+  if ('swim' in animal) {
+    animal.swim()
+  }
+  if ('run' in animal) {
+    animal.run()
+  }
+}
+
+// instanceof进行类型缩小
+function printDate(date: string | Date) {
+  if (date instanceof Date) {
+    console.log(date.getDate())
+  } else {
+    console.log(date)
+  }
+}
+printDate('2023-7-12')

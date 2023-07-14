@@ -28,10 +28,10 @@ class MyRequest {
         return err
       }
     )
-
-    // 全局响应拦截器
+      
+      // 全局响应拦截器
     this.instance.interceptors.response.use(
-      (res) => {
+      async (res) => {
         return res
       },
       (err) => {

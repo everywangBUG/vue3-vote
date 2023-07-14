@@ -11,6 +11,7 @@ const useVoteStore = defineStore(VOTE, {
     async postCreateVoteAction(voteData: IVote) {
       try {
         const res = await postVoteData(voteData)
+        console.log('voteRes', res);
         this.voteId = res.data.result.voteId
       } catch(err) {
         console.log(err)

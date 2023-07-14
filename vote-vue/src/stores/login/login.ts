@@ -1,8 +1,8 @@
 import { LOGIN } from '@/constants/login'
 import { accountLogin } from '@/service/login/login'
 import { defineStore } from 'pinia'
-import { showDialog } from 'vant';
 import router from '@/router/index'
+import { showDialog } from 'vant';
 import 'vant/es/dialog/style'
 import type { ILogin } from '@/types/login/login';
 import type { ILoginStore } from '../types';

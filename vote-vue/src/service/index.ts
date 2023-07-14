@@ -1,5 +1,7 @@
 import { BASE_URL, TIME_OUT } from './request/config'
 import MyRequest from './request'
+import { showDialog } from 'vant';
+import 'vant/es/dialog/style'
 
 export const myRequest = new MyRequest({
   baseURL: BASE_URL,
@@ -18,7 +20,20 @@ export const myRequest = new MyRequest({
       return err
     },
     responseSuccessFn: (res) => {
-      console.log(res)
+      // 用户未登录情况
+      // debugger
+      // console.log('123res', res)
+      // const dataRes =  res.data
+      // if (dataRes) {
+      //   const { code, msg } = dataRes
+      //   if (code === -1) {
+      //     alert(msg)
+      //     throw new Error(msg)
+      //   }
+      // } else {
+      //   const { code, msg } = res.response.data
+      //   alert()
+      // }
       return res
     },
     responseFailureFn: (err) => {

@@ -105,7 +105,9 @@ import { reactive, ref, computed } from 'vue'
 import useVoteStore from  '@/stores/vote/vote'
 import router from '@/router'
 import dayjs from 'dayjs'
-import { storeToRefs } from 'pinia';
+import { storeToRefs } from 'pinia'
+import { showDialog } from 'vant';
+import 'vant/es/dialog/style'
 
 interface ISingle {
   title: string
@@ -164,9 +166,20 @@ const singleVote = reactive<ISingle>({
 
 const voteStore = useVoteStore()
 const { voteId } = storeToRefs(voteStore)
+console.log('voteId', voteId)
 const onSubmit = () => {
   voteStore.postCreateVoteAction(singleVote)
-  router.push(`/vote/${voteId}`)
+  if (!voteId) {
+    showDialog({
+      message: '请登录！',
+      theme: 'round-button',
+      confirmButtonColor: '#1989fa'
+    }).then(() => {
+      router.push('/login')
+    })
+  } else {
+    router.push(`/vote/${voteId}`)
+  }
 }
 
 const addOptions = () => {
